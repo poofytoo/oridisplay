@@ -1,0 +1,167 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.30.1.7746/W32 for ARM        13/Nov/2014  00:04:12
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\Core\Test_Program\frame_view.c
+#    Command line =  
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\Core\Test_Program\frame_view.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F429_439xx -D USE_STM32F429I_DISCO -D
+#        USE_USB_OTG_HS -D USE_EMBEDDED_PHY -lcN
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\STM32F429I-Discovery_Demo\List\
+#        --diag_suppress Pe111,Pa082 -o
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\STM32F429I-Discovery_Demo\Obj\
+#        --debug --endian=little --cpu=Cortex-M4F -e --fpu=VFPv4_sp
+#        --dlib_config "C:\Program Files\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Full.h" -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\Config\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\Core\Devices\STM32F4xx\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\Core\User\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\Core\Demo\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\Core\Lib\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\Core\Test_Program\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_HOST_Library\Core\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_HOST_Library\Class\MSC\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_Device_Library\Core\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_Device_Library\Class\MSC\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_Device_Library\Class\HID\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_Device_Library\Class\Audio\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32_USB_OTG_Driver\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Utilities\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Utilities\Common\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Utilities\STM32F429i-Discovery\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Utilities\Third_Party\fat_fs\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Utilities\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Utilities\Third_Party\FreeRTOS\Source\include\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STemWinLibrary522_4x9i\inc\
+#        -I
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\..\..\..\Libraries\STemWinLibrary522_4x9i\Config\
+#        -Ohs --use_c++_inline -I "C:\Program Files\IAR Systems\Embedded
+#        Workbench 7.0\arm\CMSIS\Include\"
+#    List file    =  
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\STM32F429I-Discovery_Demo\List\frame_view.lst
+#    Object file  =  
+#        C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\EWARM\STM32F429I-Discovery_Demo\Obj\frame_view.o
+#
+###############################################################################
+
+C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration\Core\Test_Program\frame_view.c
+      1          #include "frame_view.h"
+      2          // #include "image.h"
+      3          #include "DIALOG.h"
+      4          
+      5          void draw_view(void)
+      6          {
+      7            /* Configure system clock (SYSCLK) to 180 MHz, at this stage the USB is not used.
+      8               Please note that the USB is not functional if the system clock is set to 180 MHz. */
+      9            // SetSYSCLK_180();
+     10          
+     11            /* Reconfigure the SysTick following SYSCLK frequency change */
+     12            if (SysTick_Config(SystemCoreClock / 1000))
+     13            { 
+     14              /* Capture error */ 
+     15              while (1);
+     16            }
+     17             
+     18            /* Initialize LEDs, User Button and LCD on STM32F429I-Disco */
+     19            // STM_EVAL_LEDInit(LED3);
+     20            // STM_EVAL_LEDInit(LED4);
+     21            // STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_EXTI); 
+     22            
+     23            /* Display message on LCD */ 
+     24            
+     25            // LowLevel_Init();
+     26            
+     27            LCD_Init();
+     28            LCD_LayerInit();
+     29            
+     30            // LTDC reload configuration
+     31            LTDC_ReloadConfig(LTDC_IMReload);
+     32            
+     33            // Enable the LTDC 
+     34            LTDC_Cmd(ENABLE);
+     35            
+     36            // LCD display message 
+     37            LCD_Clear(LCD_COLOR_BLACK);
+     38            // LCD_SetTextColor(LCD_COLOR_BLACK); 
+     39            // LCD_DisplayStringLine(LCD_LINE_3,(uint8_t*)"    V1.0.1     ");
+     40            // LCD_DisplayStringLine(LCD_LINE_5,(uint8_t*)"      PUSH     ");
+     41            // LCD_DisplayStringLine(LCD_LINE_7,(uint8_t*)"  USER BUTTON  ");
+     42            // LCD_DisplayStringLine(LCD_LINE_9,(uint8_t*)"    TO START   ");
+     43            
+     44              
+     45            /* Wait for User button to be pressed */
+     46            //while (STM_EVAL_PBGetState(BUTTON_USER) != Bit_SET)
+     47            
+     48            LCD_SetLayer(LCD_FOREGROUND_LAYER);
+     49            LCD_SetTextColor(0xFF00);
+     50            LCD_DrawFullCircle(100, 20, 20);
+     51          
+     52            LCD_SetFont(&Font8x8);
+     53            LCD_DisplayStringLine(LCD_LINE_1,(uint8_t*)"  mST PROGRAM ");
+     54            
+     55            while(1)
+     56            {}
+     57          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   draw_view
+         8   -> LCD_Clear
+         8   -> LCD_DisplayStringLine
+         8   -> LCD_DrawFullCircle
+         8   -> LCD_GetFont
+         8   -> LCD_Init
+         8   -> LCD_LayerInit
+         8   -> LCD_SetFont
+         8   -> LCD_SetLayer
+         8   -> LCD_SetTextColor
+         8   -> LTDC_Cmd
+         8   -> LTDC_ReloadConfig
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+      16  ?_0
+     116  draw_view
+
+ 
+ 144 bytes in section .text
+ 
+ 144 bytes of CODE memory
+
+Errors: none
+Warnings: none
