@@ -2,6 +2,8 @@
 // #include "image.h"
 #include "DIALOG.h"
 
+static sFONT *LCD_Currentfonts;
+
 void draw_view(void)
 {
   /* Configure system clock (SYSCLK) to 180 MHz, at this stage the USB is not used.
@@ -46,11 +48,32 @@ void draw_view(void)
   //while (STM_EVAL_PBGetState(BUTTON_USER) != Bit_SET)
   
   LCD_SetLayer(LCD_FOREGROUND_LAYER);
-  LCD_SetTextColor(0xFF00);
-  LCD_DrawFullCircle(100, 20, 20);
 
-  LCD_SetFont(&Font8x8);
-  LCD_DisplayStringLine(LCD_LINE_1,(uint8_t*)"  mST PROGRAM ");
+
+  LCD_SetTextColor(0xFFFF);
+  LCD_DrawFullCircle(120, 180, 2);
+
+  LCD_SetTextColor(0x632c);
+  LCD_DrawCircle(120, 180, 20);
+  LCD_DrawCircle(120, 180, 60);
+  LCD_DrawCircle(120, 180, 100);
+     
+  LCD_SetTextColor(0xe8ec * 6/5);
+  LCD_DrawFullCircle(100, 60, 21);
+  LCD_SetTextColor(0xe8ec);
+  LCD_DrawFullCircle(100, 60, 20);
+
+  LCD_SetFont(&Avenir);
+  LCD_SetTextColor(0xFFFF);
+  LCD_Currentfonts = &Avenir;
+  LCD_DrawChar(50,85,&LCD_Currentfonts->table[18 * LCD_Currentfonts->Height]); // 50
+  LCD_DrawChar(50,100,&LCD_Currentfonts->table[17 * LCD_Currentfonts->Height]);
+  LCD_DrawChar(50,115,&LCD_Currentfonts->table[16 * LCD_Currentfonts->Height]);
+  LCD_DrawChar(50,130,&LCD_Currentfonts->table[15 * LCD_Currentfonts->Height]);
+  LCD_DrawChar(50,145,&LCD_Currentfonts->table[12 * LCD_Currentfonts->Height]);
+
+  //LCD_DrawChar(50,101,&LCD_Currentfonts->table[2 * LCD_Currentfonts->Height]); // 38
+
   
   while(1)
   {}

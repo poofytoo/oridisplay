@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.30.1.7746/W32 for ARM        13/Nov/2014  00:04:17
+# IAR ANSI C/C++ Compiler V7.30.1.7746/W32 for ARM        23/Nov/2014  02:55:13
 # Copyright 1999-2014 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -363,21 +363,21 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
     289            
     290            /* Timing configuration */  
     291            /* Configure horizontal synchronization width */     
-    292            LTDC_InitStruct.LTDC_HorizontalSync = 9;
+    292            LTDC_InitStruct.LTDC_HorizontalSync = 1;//9;
     293            /* Configure vertical synchronization height */
-    294            LTDC_InitStruct.LTDC_VerticalSync = 1;
+    294            LTDC_InitStruct.LTDC_VerticalSync = 9;//1;
     295            /* Configure accumulated horizontal back porch */
-    296            LTDC_InitStruct.LTDC_AccumulatedHBP = 29; 
+    296            LTDC_InitStruct.LTDC_AccumulatedHBP = 3;//29; 
     297            /* Configure accumulated vertical back porch */
-    298            LTDC_InitStruct.LTDC_AccumulatedVBP = 3;  
+    298            LTDC_InitStruct.LTDC_AccumulatedVBP = 29;//3;  
     299            /* Configure accumulated active width */  
-    300            LTDC_InitStruct.LTDC_AccumulatedActiveW = 269;
+    300            LTDC_InitStruct.LTDC_AccumulatedActiveW = 323;//269;
     301            /* Configure accumulated active height */
-    302            LTDC_InitStruct.LTDC_AccumulatedActiveH = 323;
+    302            LTDC_InitStruct.LTDC_AccumulatedActiveH = 269;//323;
     303            /* Configure total width */
-    304            LTDC_InitStruct.LTDC_TotalWidth = 279; 
+    304            LTDC_InitStruct.LTDC_TotalWidth = 327;//279; 
     305            /* Configure total height */
-    306            LTDC_InitStruct.LTDC_TotalHeigh = 327;
+    306            LTDC_InitStruct.LTDC_TotalHeigh = 279;//327;
     307            
     308            LTDC_Init(&LTDC_InitStruct);
     309          }  
@@ -397,10 +397,10 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
     323            Horizontal stop = Horizontal start + window width -1 = 30 + 240 -1
     324            Vertical start   = vertical synchronization + vertical back porch     = 4
     325            Vertical stop   = Vertical start + window height -1  = 4 + 320 -1      */      
-    326            LTDC_Layer_InitStruct.LTDC_HorizontalStart = 30;
-    327            LTDC_Layer_InitStruct.LTDC_HorizontalStop = (LCD_PIXEL_WIDTH + 30 - 1); 
-    328            LTDC_Layer_InitStruct.LTDC_VerticalStart = 4;
-    329            LTDC_Layer_InitStruct.LTDC_VerticalStop = (LCD_PIXEL_HEIGHT + 4 - 1);
+    326            LTDC_Layer_InitStruct.LTDC_HorizontalStart = 4; //30;
+    327            LTDC_Layer_InitStruct.LTDC_HorizontalStop = (LCD_PIXEL_WIDTH + 4 - 1);//30 - 1); 
+    328            LTDC_Layer_InitStruct.LTDC_VerticalStart = 30; // 4;
+    329            LTDC_Layer_InitStruct.LTDC_VerticalStop = (LCD_PIXEL_HEIGHT + 30 - 1);//4 - 1);
     330            
     331            /* Pixel Format configuration*/
     332            LTDC_Layer_InitStruct.LTDC_PixelFormat = LTDC_Pixelformat_RGB565;
@@ -709,7 +709,7 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
     635                  (((c[index] & (0x1 << counter)) == 0x00)&&(LCD_Currentfonts->Width > 12 )))
     636                {
     637                    /* Write data value to all SDRAM memory */
-    638                   *(__IO uint16_t*) (CurrentFrameBuffer + (2*Xaddress) + xpos) = CurrentBackColor;
+    638                   // *(__IO uint16_t*) (CurrentFrameBuffer + (2*Xaddress) + xpos) = CurrentBackColor;
     639                }
     640                else
     641                {
@@ -1675,7 +1675,7 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
    1601            LCD_WriteCommand(LCD_VCOM2);
    1602            LCD_WriteData(0x90);
    1603            LCD_WriteCommand(LCD_MAC);
-   1604            LCD_WriteData(0xC8);
+   1604            LCD_WriteData(0xA8);
    1605            LCD_WriteCommand(LCD_3GAMMA_EN);
    1606            LCD_WriteData(0x00);
    1607            LCD_WriteCommand(LCD_RGB_INTERFACE);
@@ -2225,32 +2225,33 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
 
    Bytes  Function/Label
    -----  --------------
-       4  ??DataTable31
-       4  ??DataTable31_1
-       4  ??DataTable31_2
        4  ??DataTable32
+       4  ??DataTable32_1
+       4  ??DataTable32_2
        4  ??DataTable33
-       4  ??DataTable33_1
-       4  ??DataTable33_2
        4  ??DataTable34
        4  ??DataTable34_1
        4  ??DataTable34_2
-       4  ??DataTable34_3
-       4  ??DataTable37
-       4  ??DataTable37_1
-       4  ??DataTable37_2
-       4  ??DataTable37_3
-       4  ??DataTable43
-       4  ??DataTable43_1
-       4  ??DataTable43_2
-       4  ??DataTable43_3
-       4  ??DataTable43_4
-       4  ??DataTable43_5
-       4  ??DataTable43_6
+       4  ??DataTable35
+       4  ??DataTable35_1
+       4  ??DataTable35_2
+       4  ??DataTable36
+       4  ??DataTable38
+       4  ??DataTable38_1
+       4  ??DataTable38_2
+       4  ??DataTable44
+       4  ??DataTable44_1
+       4  ??DataTable44_2
+       4  ??DataTable44_3
+       4  ??DataTable44_4
+       4  ??DataTable44_5
+       4  ??DataTable44_6
     2304  ASCII12x12_Table
     4560  ASCII16x24_Table
     2304  ASCII8x12_Table
     1536  ASCII8x8_Table
+       8  Avenir
+    2184  Avenir_Table
       24  CurrentTextColor
           CurrentBackColor
           LCD_Currentfonts
@@ -2273,22 +2274,22 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
       74  LCD_DisplayOff
       74  LCD_DisplayOn
       72  LCD_DisplayStringLine
-     136  LCD_DrawChar
+     130  LCD_DrawChar
      126  LCD_DrawCircle
      302  LCD_DrawEllipse
      494  LCD_DrawFullCircle
      650  LCD_DrawFullEllipse
      106  LCD_DrawFullRect
-     124  LCD_DrawLine
+     122  LCD_DrawLine
       46  LCD_DrawMonoPict
      380  LCD_DrawRect
-     282  LCD_DrawUniLine
+     280  LCD_DrawUniLine
      316  LCD_FillPolyLine
      184  LCD_FillTriangle
       14  LCD_GetColors
        8  LCD_GetFont
      164  LCD_Init
-     164  LCD_LayerInit
+     162  LCD_LayerInit
       48  LCD_PolyLine
        4  LCD_PolyLineRelative
      106  LCD_PolyLineRelativeClosed
@@ -2311,13 +2312,13 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Utilities\STM32F429I-D
       72  LCD_WriteData
 
  
-     48 bytes in section .data
- 10 704 bytes in section .rodata
- 10 376 bytes in section .text
+     56 bytes in section .data
+ 12 888 bytes in section .rodata
+ 10 360 bytes in section .text
  
- 10 376 bytes of CODE  memory
- 10 704 bytes of CONST memory
-     48 bytes of DATA  memory
+ 10 360 bytes of CODE  memory
+ 12 888 bytes of CONST memory
+     56 bytes of DATA  memory
 
 Errors: none
 Warnings: none

@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.30.1.7746/W32 for ARM        13/Nov/2014  00:04:12
+# IAR ANSI C/C++ Compiler V7.30.1.7746/W32 for ARM        23/Nov/2014  13:59:37
 # Copyright 1999-2014 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -76,92 +76,114 @@ C:\Users\MichaelXu\Desktop\STM32F429I-Discovery_FW_V1.0.1\Projects\Demonstration
       2          // #include "image.h"
       3          #include "DIALOG.h"
       4          
-      5          void draw_view(void)
-      6          {
-      7            /* Configure system clock (SYSCLK) to 180 MHz, at this stage the USB is not used.
-      8               Please note that the USB is not functional if the system clock is set to 180 MHz. */
-      9            // SetSYSCLK_180();
-     10          
-     11            /* Reconfigure the SysTick following SYSCLK frequency change */
-     12            if (SysTick_Config(SystemCoreClock / 1000))
-     13            { 
-     14              /* Capture error */ 
-     15              while (1);
-     16            }
-     17             
-     18            /* Initialize LEDs, User Button and LCD on STM32F429I-Disco */
-     19            // STM_EVAL_LEDInit(LED3);
-     20            // STM_EVAL_LEDInit(LED4);
-     21            // STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_EXTI); 
-     22            
-     23            /* Display message on LCD */ 
+      5          static sFONT *LCD_Currentfonts;
+      6          
+      7          void draw_view(void)
+      8          {
+      9            /* Configure system clock (SYSCLK) to 180 MHz, at this stage the USB is not used.
+     10               Please note that the USB is not functional if the system clock is set to 180 MHz. */
+     11            // SetSYSCLK_180();
+     12          
+     13            /* Reconfigure the SysTick following SYSCLK frequency change */
+     14            if (SysTick_Config(SystemCoreClock / 1000))
+     15            { 
+     16              /* Capture error */ 
+     17              while (1);
+     18            }
+     19             
+     20            /* Initialize LEDs, User Button and LCD on STM32F429I-Disco */
+     21            // STM_EVAL_LEDInit(LED3);
+     22            // STM_EVAL_LEDInit(LED4);
+     23            // STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_EXTI); 
      24            
-     25            // LowLevel_Init();
+     25            /* Display message on LCD */ 
      26            
-     27            LCD_Init();
-     28            LCD_LayerInit();
-     29            
-     30            // LTDC reload configuration
-     31            LTDC_ReloadConfig(LTDC_IMReload);
-     32            
-     33            // Enable the LTDC 
-     34            LTDC_Cmd(ENABLE);
-     35            
-     36            // LCD display message 
-     37            LCD_Clear(LCD_COLOR_BLACK);
-     38            // LCD_SetTextColor(LCD_COLOR_BLACK); 
-     39            // LCD_DisplayStringLine(LCD_LINE_3,(uint8_t*)"    V1.0.1     ");
-     40            // LCD_DisplayStringLine(LCD_LINE_5,(uint8_t*)"      PUSH     ");
-     41            // LCD_DisplayStringLine(LCD_LINE_7,(uint8_t*)"  USER BUTTON  ");
-     42            // LCD_DisplayStringLine(LCD_LINE_9,(uint8_t*)"    TO START   ");
-     43            
-     44              
-     45            /* Wait for User button to be pressed */
-     46            //while (STM_EVAL_PBGetState(BUTTON_USER) != Bit_SET)
-     47            
-     48            LCD_SetLayer(LCD_FOREGROUND_LAYER);
-     49            LCD_SetTextColor(0xFF00);
-     50            LCD_DrawFullCircle(100, 20, 20);
+     27            // LowLevel_Init();
+     28            
+     29            LCD_Init();
+     30            LCD_LayerInit();
+     31            
+     32            // LTDC reload configuration
+     33            LTDC_ReloadConfig(LTDC_IMReload);
+     34            
+     35            // Enable the LTDC 
+     36            LTDC_Cmd(ENABLE);
+     37            
+     38            // LCD display message 
+     39            LCD_Clear(LCD_COLOR_BLACK);
+     40            // LCD_SetTextColor(LCD_COLOR_BLACK); 
+     41            // LCD_DisplayStringLine(LCD_LINE_3,(uint8_t*)"    V1.0.1     ");
+     42            // LCD_DisplayStringLine(LCD_LINE_5,(uint8_t*)"      PUSH     ");
+     43            // LCD_DisplayStringLine(LCD_LINE_7,(uint8_t*)"  USER BUTTON  ");
+     44            // LCD_DisplayStringLine(LCD_LINE_9,(uint8_t*)"    TO START   ");
+     45            
+     46              
+     47            /* Wait for User button to be pressed */
+     48            //while (STM_EVAL_PBGetState(BUTTON_USER) != Bit_SET)
+     49            
+     50            LCD_SetLayer(LCD_FOREGROUND_LAYER);
      51          
-     52            LCD_SetFont(&Font8x8);
-     53            LCD_DisplayStringLine(LCD_LINE_1,(uint8_t*)"  mST PROGRAM ");
-     54            
-     55            while(1)
-     56            {}
-     57          }
+     52          
+     53            LCD_SetTextColor(0xFFFF);
+     54            LCD_DrawFullCircle(120, 180, 2);
+     55          
+     56            LCD_SetTextColor(0x632c);
+     57            LCD_DrawCircle(120, 180, 20);
+     58            LCD_DrawCircle(120, 180, 60);
+     59            LCD_DrawCircle(120, 180, 100);
+     60               
+     61            LCD_SetTextColor(0xe8ec * 6/5);
+     62            LCD_DrawFullCircle(100, 60, 21);
+     63            LCD_SetTextColor(0xe8ec);
+     64            LCD_DrawFullCircle(100, 60, 20);
+     65          
+     66            LCD_SetFont(&Avenir);
+     67            LCD_SetTextColor(0xFFFF);
+     68            LCD_Currentfonts = &Avenir;
+     69            LCD_DrawChar(50,85,&LCD_Currentfonts->table[18 * LCD_Currentfonts->Height]); // 50
+     70            LCD_DrawChar(50,100,&LCD_Currentfonts->table[17 * LCD_Currentfonts->Height]);
+     71            LCD_DrawChar(50,115,&LCD_Currentfonts->table[16 * LCD_Currentfonts->Height]);
+     72            LCD_DrawChar(50,130,&LCD_Currentfonts->table[15 * LCD_Currentfonts->Height]);
+     73            LCD_DrawChar(50,145,&LCD_Currentfonts->table[12 * LCD_Currentfonts->Height]);
+     74          
+     75            //LCD_DrawChar(50,101,&LCD_Currentfonts->table[2 * LCD_Currentfonts->Height]); // 38
+     76          
+     77            
+     78            while(1)
+     79            {}
+     80          }
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
-       8   draw_view
-         8   -> LCD_Clear
-         8   -> LCD_DisplayStringLine
-         8   -> LCD_DrawFullCircle
-         8   -> LCD_GetFont
-         8   -> LCD_Init
-         8   -> LCD_LayerInit
-         8   -> LCD_SetFont
-         8   -> LCD_SetLayer
-         8   -> LCD_SetTextColor
-         8   -> LTDC_Cmd
-         8   -> LTDC_ReloadConfig
+      16   draw_view
+        16   -> LCD_Clear
+        16   -> LCD_DrawChar
+        16   -> LCD_DrawCircle
+        16   -> LCD_DrawFullCircle
+        16   -> LCD_Init
+        16   -> LCD_LayerInit
+        16   -> LCD_SetFont
+        16   -> LCD_SetLayer
+        16   -> LCD_SetTextColor
+        16   -> LTDC_Cmd
+        16   -> LTDC_ReloadConfig
 
 
    Section sizes:
 
    Bytes  Function/Label
    -----  --------------
-       4  ??DataTable1
-       4  ??DataTable1_1
-       4  ??DataTable1_2
-      16  ?_0
-     116  draw_view
+       4  LCD_Currentfonts
+     312  draw_view
 
  
- 144 bytes in section .text
+   4 bytes in section .bss
+ 312 bytes in section .text
  
- 144 bytes of CODE memory
+ 312 bytes of CODE memory
+   4 bytes of DATA memory
 
 Errors: none
-Warnings: none
+Warnings: 1
